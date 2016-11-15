@@ -14,7 +14,9 @@ var corsOptions = {
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
 app.use(session({
-    secret: config.sessionSecret
+    secret: config.sessionSecret,
+    saveUninitialized: false,
+    resave: false
 
   }));
 app.use(express.static(__dirname + '/public'));
@@ -30,4 +32,4 @@ app.get('/api/profiles', profileCtrl.friends);
 
 app.listen(3000, function() {
   console.log("I am listening");
-})
+});

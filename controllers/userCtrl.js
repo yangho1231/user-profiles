@@ -22,15 +22,17 @@ var users = [
 ];
 module.exports = {
   login:function(req,res,next) {
-    for(var i = 0; user.length; i++) {
-      if(req.body.name === user[i].name && req.body.password === user[i].password) {
-        req.session.currentUser === user[i];
+    var correctUser = false;
+    for(var i = 0; i < users.length; i++) {
+
+      if(users[i].name === req.body.name && users[i].password === req.body.password){
+        req.session.currentUser = users[i];
+        correctUser = true;
       }
-    
-      else {
-        res.send({userFound: false});
-      }
+
+
     }
+    res.json({userFound: correctUser});
   }
 };
 // module.exports = {

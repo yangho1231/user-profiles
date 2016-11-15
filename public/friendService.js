@@ -6,7 +6,7 @@ angular.module('userProfiles')
       /* FIX ME */
       return $http({
         method: 'POST',
-        url: 'http//:localhost:3000/api/login',
+        url: 'http://localhost:3000/api/login',
         data: user
       });
     };
@@ -15,7 +15,7 @@ angular.module('userProfiles')
     	/* FIX ME */
       return $http({
         method: 'GET',
-        url: 'http//:localhost:3000/api/profiles'
+        url: 'http://localhost:3000/api/profiles'
       });
 
     };
